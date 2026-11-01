@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dn6b5osqewdec"]
+
+[ext_resource type="Script" uid="uid://ccgaxj100e6k" path="res://Objects/Weapons/Ammo/rifle_ammo.gd" id="1_gc1kh"]
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="2_xrtdl"]
+[ext_resource type="Script" uid="uid://6hhfdyfhgct5" path="res://Inventory/Action/action_data.gd" id="3_mahjr"]
+[ext_resource type="Script" uid="uid://84xwl8ysx4b7" path="res://Inventory/item_data.gd" id="4_kfess"]
+[ext_resource type="Texture2D" uid="uid://ct8rsy4487eo2" path="res://assets/Screenshot 2026-09-12 033543.png" id="5_3jjhs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iqvcw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llwae"]
+albedo_color = Color(0, 0.6666667, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6kqxh"]
+size = Vector3(0.199, 0.092, 0.139)
+
+[sub_resource type="Resource" id="Resource_llwae"]
+script = ExtResource("3_mahjr")
+metadata/_custom_type_script = "uid://6hhfdyfhgct5"
+
+[sub_resource type="PackedScene" id="PackedScene_iqvcw"]
+
+[sub_resource type="Resource" id="Resource_gc1kh"]
+script = ExtResource("4_kfess")
+name = "rifle_ammo"
+texture = ExtResource("5_3jjhs")
+dimentions = Vector2i(1, 1)
+action_data = SubResource("Resource_llwae")
+quantity = 5
+max_quant = 10
+cur_ammo = 10
+item_model_prefab = SubResource("PackedScene_iqvcw")
+quant = true
+metadata/_custom_type_script = "uid://84xwl8ysx4b7"
+
+[node name="rifle_ammo" type="RigidBody3D" unique_id=306509528]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_gc1kh")
+quant = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1780118718]
+transform = Transform3D(0.16252977, 0, 0, 0, 0.06857234, 0, 0, 0, 0.13510287, 0, 0, 0)
+mesh = SubResource("BoxMesh_iqvcw")
+surface_material_override/0 = SubResource("StandardMaterial3D_llwae")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1308657752]
+shape = SubResource("BoxShape3D_6kqxh")
+
+[node name="InteractionComponent" parent="." unique_id=1532396645 node_paths=PackedStringArray("object_ref") instance=ExtResource("2_xrtdl")]
+object_ref = NodePath("..")
+interaction_type = 3
+item_data = SubResource("Resource_gc1kh")

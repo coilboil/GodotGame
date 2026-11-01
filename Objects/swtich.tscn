@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cq8sqqjibxeh4"]
+
+[ext_resource type="Texture2D" uid="uid://ch41xi0apgacu" path="res://Materials/PNG/Orange/texture_01.png" id="1_abi8p"]
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="1_hsa3v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o612f"]
+size = Vector3(0.1, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7rf1"]
+albedo_texture = ExtResource("1_abi8p")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsa3v"]
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="Switch" type="Node3D" unique_id=1652232969]
+
+[node name="Swtich" type="StaticBody3D" parent="." unique_id=1437449311]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Swtich" unique_id=1699304243]
+mesh = SubResource("BoxMesh_o612f")
+surface_material_override/0 = SubResource("StandardMaterial3D_v7rf1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Swtich" unique_id=1419702431]
+shape = SubResource("BoxShape3D_hsa3v")
+
+[node name="InteractionComponent" parent="Swtich" unique_id=1532396645 node_paths=PackedStringArray("object_ref", "pivot_point") instance=ExtResource("1_hsa3v")]
+object_ref = NodePath("..")
+interaction_type = 2
+pivot_point = NodePath("..")

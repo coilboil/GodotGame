@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bllu57tf4phxy"]
+
+[ext_resource type="Script" uid="uid://bldpvmcuepitf" path="res://Scripts/player.gd" id="1_y0qk3"]
+[ext_resource type="Script" uid="uid://csynn6do8cf65" path="res://Scripts/camera_controller.gd" id="2_3y5cq"]
+[ext_resource type="Texture2D" uid="uid://dlqxvbfys1dqv" path="res://Sprites/stamina_bar_under.png" id="3_0ad8t"]
+[ext_resource type="Texture2D" uid="uid://sf4rw5x6vq0m" path="res://Sprites/stamina_bar_over.png" id="4_x20fu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ad8t"]
+radius = 0.4
+height = 0.9
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ojbdc"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=805182843]
+script = ExtResource("1_y0qk3")
+
+[node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=706642132]
+shape = SubResource("CapsuleShape3D_y0qk3")
+
+[node name="CrouchingCollision" type="CollisionShape3D" parent="." unique_id=1142049252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+shape = SubResource("CapsuleShape3D_0ad8t")
+disabled = true
+
+[node name="CrouchCheck" type="RayCast3D" parent="." unique_id=22781401]
+transform = Transform3D(1.85, 0, 0, 0, 1.85, 0, 0, 0, 1.85, 0, -0.9, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2095426551]
+visible = false
+mesh = SubResource("CapsuleMesh_ojbdc")
+
+[node name="CamMarker" type="Marker3D" parent="." unique_id=2088032751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1565466909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+top_level = true
+script = ExtResource("2_3y5cq")
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=1346270347]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=150577670]
+
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=758710101]
+offset_left = 455.0
+offset_top = 620.0
+offset_right = 695.0
+offset_bottom = 635.0
+max_value = 1000.0
+texture_under = ExtResource("3_0ad8t")
+texture_progress = ExtResource("4_x20fu")

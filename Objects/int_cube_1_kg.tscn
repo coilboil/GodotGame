@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://blhmxb48t7xo"]
+
+[ext_resource type="Texture2D" uid="uid://duh2me73m4n7j" path="res://Materials/PNG/Green/texture_01.png" id="1_phxqi"]
+[ext_resource type="Script" uid="uid://coch16rxwojst" path="res://Objects/int_cube_1_kg.gd" id="1_wa7vs"]
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="2_8evb7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8evb7"]
+albedo_texture = ExtResource("1_phxqi")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wa7vs"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_8evb7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23ktc"]
+
+[node name="IntCube_1kg" type="RigidBody3D" unique_id=1561679902 groups=["breakable"]]
+script = ExtResource("1_wa7vs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=929480212]
+mesh = SubResource("BoxMesh_wa7vs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1460489562]
+shape = SubResource("BoxShape3D_23ktc")
+
+[node name="InteractionComponent" parent="." unique_id=1532396645 node_paths=PackedStringArray("object_ref") instance=ExtResource("2_8evb7")]
+object_ref = NodePath("..")

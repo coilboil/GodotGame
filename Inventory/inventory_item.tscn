@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bdhinhr4t1hch"]
+
+[ext_resource type="Script" uid="uid://qiybttnjklbi" path="res://Inventory/inventory_item.gd" id="1_258di"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_258di"]
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+
+[node name="InventoryItem" type="Sprite2D" unique_id=870440296]
+scale = Vector2(2, 2)
+script = ExtResource("1_258di")
+
+[node name="Quantity" type="Label" parent="." unique_id=2145023984]
+visible = false
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 6.0
+offset_bottom = 15.0
+text = "1"
+label_settings = SubResource("LabelSettings_258di")
+horizontal_alignment = 2
+vertical_alignment = 2

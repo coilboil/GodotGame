@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://crp5i3a6cr8fj"]
+
+[ext_resource type="Script" uid="uid://bfd7gml0kvp1c" path="res://Scenes/lvl1/unstable_light.gd" id="1_ja5bg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfxu0"]
+size = Vector3(1.7, 1.7, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wvewc"]
+load_path = "res://.godot/imported/lvl1_tex_OfficeCeiling002_4K-JPG_Color.jpg-f3bbd8aa38ea848fe74699e4a2012acb.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ljs6"]
+load_path = "res://.godot/imported/lvl1_tex_OfficeCeiling002_4K-JPG_Emission.jpg-0296a9631aeb85872feb3132e930a2b9.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7faon"]
+load_path = "res://.godot/imported/lvl1_tex_OfficeCeiling002_4K-JPG_Metalness-OfficeCeiling002_4K-JPG_Roughness.png-73608b40a4eed2c65f12bb41ecd8ac2e.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ocu7"]
+load_path = "res://.godot/imported/lvl1_tex_OfficeCeiling002_4K-JPG_NormalGL.jpg-5b67d9e588991f077b49ab3bbf55b6eb.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38mwk"]
+albedo_texture = SubResource("CompressedTexture2D_wvewc")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_7faon")
+emission_enabled = true
+emission_energy_multiplier = 0.92
+emission_texture = SubResource("CompressedTexture2D_8ljs6")
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_8ocu7")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_offset = Vector3(0.416, 0.083, -0.01)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
+
+[node name="UnstableLight" type="StaticBody3D" unique_id=928677303]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_ja5bg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1066367334]
+transform = Transform3D(0.97, 0, 0, 0, 0.97, 0, 0, 0, 0.97, 0, -0.02, -0.006)
+mesh = SubResource("BoxMesh_lfxu0")
+surface_material_override/0 = SubResource("StandardMaterial3D_38mwk")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=718251540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5594473)
+light_color = Color(0.8273809, 0.9670823, 0.9676781, 1)
+light_energy = 0.6
+light_volumetric_fog_energy = 0.3
+shadow_enabled = true
+spot_range = 20.0
+spot_angle = 80.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=290321733]
+shape = SubResource("BoxShape3D_lfxu0")

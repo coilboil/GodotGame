@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b4wvt5uky1ehh"]
+
+[ext_resource type="Script" uid="uid://cbmvlromhns18" path="res://Objects/Enemies/projectile.gd" id="1_xy1x4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j5mih"]
+top_radius = 0.0
+bottom_radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy1x4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Projectile" type="RayCast3D" unique_id=840148547]
+top_level = true
+collision_mask = 3
+script = ExtResource("1_xy1x4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1469443572]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0, 0, 0)
+mesh = SubResource("CylinderMesh_j5mih")
+surface_material_override/0 = SubResource("StandardMaterial3D_xy1x4")

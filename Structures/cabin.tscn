@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://cbh86tf4arpxn"]
+
+[ext_resource type="Script" uid="uid://bchix0jpv46lx" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="1_h08dj"]
+[ext_resource type="Script" uid="uid://c5jpx1aoa7iso" path="res://addons/cyclops_level_builder/resources/data_vector_byte.gd" id="2_ya8c1"]
+[ext_resource type="Script" uid="uid://dekcd1o0m0k3r" path="res://addons/cyclops_level_builder/resources/data_vector_float.gd" id="3_mhq0b"]
+[ext_resource type="Script" uid="uid://dfd47cc554yqi" path="res://addons/cyclops_level_builder/resources/data_vector_int.gd" id="4_cfr4v"]
+[ext_resource type="Script" uid="uid://dmot4k5n7k0w6" path="res://addons/cyclops_level_builder/resources/mesh_vector_data.gd" id="5_egf0n"]
+[ext_resource type="PackedScene" uid="uid://bllu57tf4phxy" path="res://Objects/player.tscn" id="6_ya8c1"]
+
+[sub_resource type="Resource" id="Resource_712yd"]
+script = ExtResource("2_ya8c1")
+data = PackedByteArray(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_4uakv"]
+script = ExtResource("2_ya8c1")
+data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_xsc64"]
+script = ExtResource("4_cfr4v")
+data = PackedInt32Array(-1, -1, -1, -1, -1, -1)
+data_type = 1
+
+[sub_resource type="Resource" id="Resource_b4wl8"]
+script = ExtResource("3_mhq0b")
+data = PackedFloat32Array(-1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, 0, -1)
+data_type = 6
+stride = 3
+
+[sub_resource type="Resource" id="Resource_wtt1n"]
+script = ExtResource("2_ya8c1")
+data = PackedByteArray(0, 0, 0, 0, 1, 0)
+
+[sub_resource type="Resource" id="Resource_fjnye"]
+script = ExtResource("2_ya8c1")
+data = PackedByteArray(1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_2w2mo"]
+script = ExtResource("3_mhq0b")
+data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+data_type = 4
+stride = 4
+
+[sub_resource type="Resource" id="Resource_4l2fl"]
+script = ExtResource("4_cfr4v")
+data = PackedInt32Array(0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5)
+data_type = 1
+
+[sub_resource type="Resource" id="Resource_a2ep1"]
+script = ExtResource("3_mhq0b")
+data = PackedFloat32Array(-1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1)
+data_type = 6
+stride = 3
+
+[sub_resource type="Resource" id="Resource_p0pdg"]
+script = ExtResource("2_ya8c1")
+data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_gfc42"]
+script = ExtResource("3_mhq0b")
+data = PackedFloat32Array(-108, -129, -138, -129, -138, 0, -108, 0, -108, 0, -138, 0, -138, -129, -108, -129, 89, -138, 89, -108, 45, -108, 45, -138, 89, 0, 89, -129, 45, -129, 45, 0, 89, -108, 89, -138, 45, -138, 45, -108, 89, -129, 89, 0, 45, 0, 45, -129)
+data_type = 5
+stride = 2
+
+[sub_resource type="Resource" id="Resource_irn1d"]
+script = ExtResource("4_cfr4v")
+data = PackedInt32Array(0, 1, 2, 3, 7, 6, 5, 4, 1, 0, 4, 5, 2, 1, 5, 6, 3, 2, 6, 7, 0, 3, 7, 4)
+data_type = 1
+
+[sub_resource type="Resource" id="Resource_m4n4q"]
+script = ExtResource("3_mhq0b")
+data = PackedFloat32Array(-0.1815767, 0.9466295, -0.2663125, -0.1815767, 0.9466295, 0.2663125, -0.1815767, -0.9466295, 0.2663125, -0.1815767, -0.9466295, -0.2663125, 0.1815767, 0.9466295, -0.2663125, 0.1815767, 0.9466295, 0.2663125, 0.1815767, -0.9466295, 0.2663125, 0.1815767, -0.9466295, -0.2663125)
+data_type = 6
+stride = 3
+
+[sub_resource type="Resource" id="Resource_w7nyj"]
+script = ExtResource("3_mhq0b")
+data = PackedFloat32Array(0, 105.451515, 0, 0, 105.451515, 30, 0, 97.0117, 30, 0, 97.0117, 0, 44, 105.451515, 0, 44, 105.451515, 30, 44, 97.0117, 30, 44, 97.0117, 0)
+data_type = 6
+stride = 3
+
+[sub_resource type="Resource" id="Resource_502af"]
+script = ExtResource("2_ya8c1")
+data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_0peqv"]
+script = ExtResource("5_egf0n")
+num_vertices = 8
+num_edges = 12
+num_faces = 6
+num_face_vertices = 24
+active_vertex = -1
+active_face = 4
+active_face_vertex = -1
+edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 7, 6, 6, 5, 5, 4, 4, 7, 0, 4, 5, 1, 6, 2, 7, 3)
+edge_face_indices = PackedInt32Array(0, 2, 0, 3, 0, 4, 0, 5, 1, 4, 1, 3, 1, 2, 1, 5, 2, 5, 2, 3, 3, 4, 4, 5)
+face_vertex_count = PackedInt32Array(4, 4, 4, 4, 4, 4)
+face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 7, 6, 5, 4, 1, 0, 4, 5, 2, 1, 5, 6, 3, 2, 6, 7, 0, 3, 7, 4)
+vertex_data = {
+"normal": SubResource("Resource_m4n4q"),
+"position": SubResource("Resource_w7nyj"),
+"selected": SubResource("Resource_502af")
+}
+edge_data = {
+"selected": SubResource("Resource_712yd"),
+"uv_seam": SubResource("Resource_4uakv")
+}
+face_data = {
+"material_index": SubResource("Resource_xsc64"),
+"normal": SubResource("Resource_b4wl8"),
+"selected": SubResource("Resource_wtt1n"),
+"visible": SubResource("Resource_fjnye")
+}
+face_vertex_data = {
+"color": SubResource("Resource_2w2mo"),
+"face_index": SubResource("Resource_4l2fl"),
+"normal": SubResource("Resource_a2ep1"),
+"selected": SubResource("Resource_p0pdg"),
+"uv0": SubResource("Resource_gfc42"),
+"vertex_index": SubResource("Resource_irn1d")
+}
+
+[node name="cabin" type="Node3D" unique_id=763296025]
+
+[node name="Block_0" type="Node3D" parent="." unique_id=982394722]
+transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, -55.33912, 0)
+script = ExtResource("1_h08dj")
+mesh_vector_data = SubResource("Resource_0peqv")
+
+[node name="Player" parent="." unique_id=805182843 instance=ExtResource("6_ya8c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.927942, 6.171022, 9.900402)

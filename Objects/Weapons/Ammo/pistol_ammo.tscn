@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bcvgcygsw7gqd"]
+
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="1_in1yt"]
+[ext_resource type="Script" uid="uid://cc4n2uamih5v4" path="res://Objects/Weapons/Ammo/pistol_ammo.gd" id="1_rb56w"]
+[ext_resource type="Script" uid="uid://84xwl8ysx4b7" path="res://Inventory/item_data.gd" id="2_hsd5d"]
+[ext_resource type="Script" uid="uid://6hhfdyfhgct5" path="res://Inventory/Action/action_data.gd" id="2_rb56w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xoo2d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65jux"]
+albedo_color = Color(0.74664575, 0, 0.0058534695, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsd5d"]
+size = Vector3(0.199, 0.092, 0.139)
+
+[sub_resource type="Resource" id="Resource_xoo2d"]
+script = ExtResource("2_rb56w")
+metadata/_custom_type_script = "uid://6hhfdyfhgct5"
+
+[sub_resource type="PackedScene" id="PackedScene_rb56w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hsd5d"]
+load_path = "res://.godot/imported/Screenshot 2026-07-06 204637.png-9316d6abe15f20e1f8760b08bb3df33f.ctex"
+
+[sub_resource type="Resource" id="Resource_4dfcy"]
+script = ExtResource("2_hsd5d")
+name = "pistol_ammo"
+texture = SubResource("CompressedTexture2D_hsd5d")
+dimentions = Vector2i(1, 1)
+action_data = SubResource("Resource_xoo2d")
+quantity = 12
+max_quant = 48
+cur_ammo = 15
+item_model_prefab = SubResource("PackedScene_rb56w")
+quant = true
+metadata/_custom_type_script = "uid://84xwl8ysx4b7"
+
+[node name="PistolAmmo" type="RigidBody3D" unique_id=1972460427]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_rb56w")
+quant = 12
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=972033645]
+transform = Transform3D(0.16252977, 0, 0, 0, 0.06857234, 0, 0, 0, 0.13510287, 0, 0, 0)
+mesh = SubResource("BoxMesh_xoo2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_65jux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1649787085]
+shape = SubResource("BoxShape3D_hsd5d")
+
+[node name="InteractionComponent" parent="." unique_id=1532396645 node_paths=PackedStringArray("object_ref") instance=ExtResource("1_in1yt")]
+object_ref = NodePath("..")
+interaction_type = 3
+item_data = SubResource("Resource_4dfcy")

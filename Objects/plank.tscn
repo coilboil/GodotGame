@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bav3s4bdbqq1q"]
+
+[ext_resource type="Script" uid="uid://56gqsqeuemvw" path="res://Objects/plank.gd" id="1_4nu8n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_efq4g"]
+size = Vector3(0.02, 0.18, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efq4g"]
+albedo_color = Color(0.5197328, 0.43204647, 0.23799062, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nu8n"]
+size = Vector3(0.02, 0.18, 2)
+
+[node name="Plank" type="StaticBody3D" unique_id=221156835 groups=["breakable"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4nu8n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1410467409]
+mesh = SubResource("BoxMesh_efq4g")
+surface_material_override/0 = SubResource("StandardMaterial3D_efq4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2021069616]
+shape = SubResource("BoxShape3D_4nu8n")

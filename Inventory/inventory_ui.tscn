@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://k5odbowqvxlk"]
+
+[ext_resource type="Script" uid="uid://d1rcshgxpxr3i" path="res://Inventory/item_grid.gd" id="1_8su62"]
+[ext_resource type="Script" uid="uid://g5m1mj0x8nc8" path="res://Inventory/inventory.gd" id="1_vr5og"]
+[ext_resource type="PackedScene" uid="uid://bdhinhr4t1hch" path="res://Inventory/inventory_item.tscn" id="2_brbew"]
+[ext_resource type="PackedScene" uid="uid://bupvfn8rfbia2" path="res://Inventory/inventory_slot.tscn" id="2_os1l6"]
+
+[node name="InventoryUI" type="Control" unique_id=530309374]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="PanelContainer" parent="." unique_id=796038725]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vr5og")
+inventory_item_scene = ExtResource("2_brbew")
+
+[node name="ItemGrid" type="GridContainer" parent="Inventory" unique_id=727198691]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+script = ExtResource("1_8su62")
+inventory_slot_scene = ExtResource("2_os1l6")
+dimentions = Vector2i(5, 5)
+
+[connection signal="mouse_entered" from="Inventory/ItemGrid" to="Inventory/ItemGrid" method="_on_mouse_entered"]

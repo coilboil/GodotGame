@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b22gfuwkr7at6"]
+
+[ext_resource type="Script" uid="uid://cb7nxwyb82krw" path="res://Objects/crouch_jump_test_cube.gd" id="1_m5uih"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v36w2"]
+size = Vector3(1, 1.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5uih"]
+size = Vector3(1, 1.1, 1)
+
+[node name="CrouchJumpTestCube" type="StaticBody3D" unique_id=1620005764]
+script = ExtResource("1_m5uih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=694646652]
+mesh = SubResource("BoxMesh_v36w2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1117655121]
+shape = SubResource("BoxShape3D_m5uih")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=479638883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.501)
+text = "sadasdsad
+"

@@ -1,0 +1,586 @@
+[gd_scene format=3 uid="uid://b1d8grm2lqqsr"]
+
+[ext_resource type="PackedScene" uid="uid://bllu57tf4phxy" path="res://Objects/player.tscn" id="1_34s0t"]
+[ext_resource type="PackedScene" uid="uid://bd32q5q1qx84q" path="res://Objects/World Assests/test_binblend.tscn" id="4_ej0g8"]
+[ext_resource type="Texture2D" uid="uid://46h42qxa7cw4" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_Color.jpg" id="4_iiacx"]
+[ext_resource type="Texture2D" uid="uid://cq6b2ygif7ric" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_NormalGL.jpg" id="5_712yd"]
+[ext_resource type="PackedScene" uid="uid://bci1qank8tt5r" path="res://Objects/World Assests/container.tscn" id="5_k2fhp"]
+[ext_resource type="PackedScene" uid="uid://cxn6niu35iafr" path="res://Objects/Weapons/revolver.tscn" id="6_cf4oo"]
+[ext_resource type="PackedScene" uid="uid://byqmf1noswsld" path="res://Objects/Weapons/hunting_rifle.tscn" id="8_iiacx"]
+[ext_resource type="PackedScene" uid="uid://dn0ljlstald6n" path="res://Objects/Weapons/Ammo/buckshot.tscn" id="9_712yd"]
+[ext_resource type="PackedScene" uid="uid://ljfdfykikk85" path="res://Objects/Weapons/Ammo/revolver_ammo.tscn" id="10_4uakv"]
+[ext_resource type="PackedScene" uid="uid://dn6b5osqewdec" path="res://Objects/Weapons/Ammo/rifle_ammo.tscn" id="11_wtt1n"]
+[ext_resource type="PackedScene" uid="uid://djifg1e8tbolm" path="res://Objects/Weapons/double_barrel.tscn" id="12_iaawv"]
+[ext_resource type="Script" uid="uid://0xre2p8sqbln" path="res://Scenes/left_map_tp.gd" id="12_iiacx"]
+[ext_resource type="Script" uid="uid://dlg3s8veuuiwt" path="res://Scenes/enemy_spawn_points.gd" id="13_iiacx"]
+[ext_resource type="PackedScene" uid="uid://cpx50a2ka2le7" path="res://Objects/Weapons/Melee/fire_axe.tscn" id="25_w7nyj"]
+[ext_resource type="PackedScene" uid="uid://qsnnliehep01" path="res://Objects/Weapons/Melee/pipe.tscn" id="26_m4n4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
+size = Vector3(25, 30, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2fhp"]
+size = Vector3(25, 30, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6d5u"]
+size = Vector3(25, 30, 25)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lfxu0"]
+height = 50.28
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_iaawv"]
+vertices = PackedVector3Array(195.69551, 0.25025, 142.39226, 198.19801, 0.25025, 145.145, 198.69852, 0.25025, 145.145, 55.555504, 0.25025, 85.5855, 56.056004, 0.25025, 86.33625, 63.063004, 0.25025, 90.59051, 201.45126, 0.25025, 148.14801, 201.45126, 0.25025, 148.64851, 255.255, 0.25025, 148.64851, 0.25025, 0.25025, 92.84275, 50.050003, 0.25025, 92.84275, 54.804752, 0.25025, 85.5855, 0.25025, 0.25025, -255.50526, 63.563503, 0.25025, 91.84175, 194.94476, 0.25025, 142.39226, 255.255, 0.25025, -255.50526, 55.80575, 0.25025, 87.5875, 55.055004, 0.25025, 87.5875, 53.5535, 0.25025, 89.83975, 53.803753, 0.25025, 91.341255, 55.555504, 0.25025, 95.34525, 59.059002, 0.25025, 90.090004, 52.302254, 0.25025, 93.093, 52.302254, 4.7547503, 92.092, 51.801754, 4.5045004, 92.342255, 51.801754, 4.25425, 93.093, 55.555504, 4.25425, 95.34525, 56.056004, 5.005, 94.34425, 55.80575, 4.25425, 87.5875, 55.055004, 4.5045004, 87.5875, 54.554504, 5.005, 88.5885, 53.303253, 5.5055003, 88.83875, 52.302254, 5.5055003, 90.340256, 53.053, 5.5055003, 90.84075, 57.557503, 5.5055003, 93.84376, 58.558502, 5.5055003, 92.342255, 58.308254, 5.005, 90.84075, 57.807755, 5.75575, 92.84275, 59.059002, 4.25425, 90.090004, 56.80675, 5.75575, 91.84175, 59.5595, 4.5045004, 92.84275, 59.059002, 4.25425, 93.093, 59.059002, 4.004, 93.84376, 60.5605, 4.004, 94.594505, 60.5605, 4.004, 90.090004, 59.5595, 4.7547503, 91.59151, 62.562504, 4.004, 91.59151, 61.311253, 4.5045004, 93.593506, 60.5605, 0.25025, 90.84075, 59.309254, 0.25025, 91.59151, 59.059002, 0.25025, 93.093, 61.061005, 0.25025, 94.094, 62.312252, 0.25025, 92.342255, 124.37425, 0.25025, 204.20401, 135.13501, 0.25025, 202.95276, 157.15701, 0.25025, 181.18102, 190.44026, 0.25025, 147.89775, 190.44026, 0.25025, 147.147, 63.31325, 0.25025, 92.342255, 61.311253, 0.25025, 95.095, 124.12401, 0.25025, 204.70451, 191.19101, 0.25025, 152.15201, 192.94276, 0.25025, 150.15001, 191.19101, 0.25025, 152.90276, 134.38426, 0.25025, 203.95377, 60.06, 0.25025, 95.595505, 58.058002, 0.25025, 94.094, 56.556503, 0.25025, 96.596504, 61.061005, 0.25025, 95.595505, 55.305252, 0.25025, 97.09701, 126.37626, 0.25025, 255.255, 126.37626, 0.25025, 213.46326, 124.12401, 0.25025, 213.21301, 0.25025, 0.25025, 255.255, 50.30025, 0.25025, 93.84376, 196.19601, 4.7547503, 151.151, 196.6965, 4.5045004, 151.90176, 197.197, 4.25425, 151.90176, 199.94975, 4.25425, 148.89876, 192.94276, 4.7547503, 148.14801, 192.94276, 5.2552505, 149.39926, 194.19402, 5.75575, 150.65051, 193.44325, 5.5055003, 149.39926, 199.199, 4.7547503, 147.89775, 199.199, 5.2552505, 146.6465, 197.197, 5.2552505, 144.89476, 195.94576, 4.7547503, 144.89476, 196.94676, 5.5055003, 145.89575, 197.94775, 5.5055003, 146.89676, 198.19801, 5.75575, 145.64551, 195.44527, 4.25425, 144.14401, 192.19202, 4.25425, 147.39726, 196.44626, 5.75575, 147.39726, 196.44626, 0.25025, 151.40126, 196.6965, 0.25025, 151.90176, 197.197, 0.25025, 151.90176, 195.69551, 0.25025, 150.65051, 195.69551, 0.25025, 151.40126, 199.94975, 0.25025, 148.89876, 198.19801, 0.25025, 146.6465, 196.6965, 0.25025, 146.6465, 194.94476, 0.25025, 144.89476, 194.44426, 0.25025, 144.89476, 192.19202, 0.25025, 147.39726, 201.45126, 0.25025, 149.149, 194.94476, 0.25025, 156.156, 194.94476, 0.25025, 255.255, 255.255, 0.25025, 255.255, 193.69351, 4.25425, 151.6515, 193.44325, 4.004, 151.151, 192.19202, 3.75375, 152.15201, 194.6945, 4.004, 155.15501, 195.195, 3.75375, 155.15501, 196.44626, 4.004, 153.6535, 194.94476, 5.005, 151.90176, 192.94276, 4.5045004, 153.153, 193.69351, 4.5045004, 154.154, 195.94576, 0.25025, 153.153, 195.195, 0.25025, 151.90176, 193.94376, 0.25025, 151.40126, 192.44226, 0.25025, 153.40326, 193.94376, 0.25025, 154.90475, 193.94376, 0.25025, 155.6555, 191.69151, 0.25025, 153.40326, 194.6945, 0.25025, 156.156, 134.88475, 0.25025, 204.20401, 131.6315, 0.25025, 205.45526, 131.38126, 0.25025, 206.95676, 131.6315, 0.25025, 208.20801, 134.6345, 0.25025, 207.95776, 134.6345, 0.25025, 205.45526, 134.88475, 0.25025, 209.20901, 131.6315, 0.25025, 213.21301, 129.37926, 0.25025, 255.255, 129.37926, 0.25025, 213.46326, 131.6315, 0.25025, 209.45926, 131.88176, 4.004, 208.70851, 133.88376, 4.004, 208.70851, 133.88376, 3.75375, 204.70451, 131.6315, 3.75375, 204.70451, 131.6315, 4.5045004, 205.95576, 131.6315, 4.5045004, 207.20702, 133.88376, 4.5045004, 207.20702, 133.88376, 4.5045004, 205.95576, 125.6255, 0.25025, 205.45526, 125.6255, 0.25025, 208.70851, 126.37626, 0.25025, 208.95876, 126.37626, 0.25025, 212.212, 130.38025, 0.25025, 212.212, 130.38025, 0.25025, 205.45526, 124.874756, 5.2552505, 207.20702, 124.874756, 5.2552505, 210.46027, 125.6255, 5.005, 210.46027, 125.6255, 5.005, 207.20702, 125.6255, 5.5055003, 208.20801, 130.38025, 4.25425, 205.45526, 125.6255, 4.25425, 205.45526, 130.38025, 5.005, 210.46027, 130.88075, 5.2552505, 210.46027, 130.38025, 5.5055003, 207.95776, 130.63051, 5.5055003, 207.95776, 125.6255, 4.25425, 212.212, 130.38025, 4.25425, 212.212, 128.87875, 5.75575, 208.95876)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 5, 4), PackedInt32Array(8, 7, 6), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(8, 6, 2), PackedInt32Array(8, 2, 0), PackedInt32Array(14, 13, 0), PackedInt32Array(0, 13, 5), PackedInt32Array(3, 11, 12), PackedInt32Array(5, 3, 0), PackedInt32Array(0, 3, 8), PackedInt32Array(8, 3, 15), PackedInt32Array(15, 3, 12), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 21), PackedInt32Array(19, 21, 20), PackedInt32Array(20, 22, 19), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 27), PackedInt32Array(25, 27, 26), PackedInt32Array(28, 30, 29), PackedInt32Array(23, 32, 33), PackedInt32Array(33, 32, 31), PackedInt32Array(33, 31, 30), PackedInt32Array(34, 37, 35), PackedInt32Array(35, 37, 36), PackedInt32Array(28, 38, 36), PackedInt32Array(33, 27, 23), PackedInt32Array(27, 39, 34), PackedInt32Array(34, 39, 37), PackedInt32Array(37, 39, 36), PackedInt32Array(36, 30, 28), PackedInt32Array(30, 39, 33), PackedInt32Array(33, 39, 27), PackedInt32Array(39, 30, 36), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 43), PackedInt32Array(43, 40, 47), PackedInt32Array(47, 40, 45), PackedInt32Array(47, 45, 44), PackedInt32Array(47, 44, 46), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 51), PackedInt32Array(51, 48, 52), PackedInt32Array(53, 55, 54), PackedInt32Array(57, 56, 55), PackedInt32Array(52, 58, 51), PackedInt32Array(51, 58, 59), PackedInt32Array(59, 58, 53), PackedInt32Array(59, 53, 60), PackedInt32Array(57, 55, 14), PackedInt32Array(14, 55, 53), PackedInt32Array(14, 53, 58), PackedInt32Array(14, 58, 13), PackedInt32Array(56, 62, 61), PackedInt32Array(61, 63, 56), PackedInt32Array(56, 63, 55), PackedInt32Array(54, 64, 53), PackedInt32Array(67, 66, 65), PackedInt32Array(65, 68, 67), PackedInt32Array(67, 68, 69), PackedInt32Array(69, 68, 60), PackedInt32Array(68, 59, 60), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(9, 10, 74), PackedInt32Array(74, 69, 9), PackedInt32Array(9, 69, 60), PackedInt32Array(9, 60, 72), PackedInt32Array(9, 72, 73), PackedInt32Array(76, 75, 77), PackedInt32Array(77, 75, 78), PackedInt32Array(79, 82, 80), PackedInt32Array(80, 82, 81), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 89), PackedInt32Array(87, 89, 88), PackedInt32Array(88, 89, 84), PackedInt32Array(88, 84, 83), PackedInt32Array(79, 91, 86), PackedInt32Array(86, 91, 90), PackedInt32Array(75, 83, 78), PackedInt32Array(83, 92, 88), PackedInt32Array(88, 92, 87), PackedInt32Array(87, 92, 86), PackedInt32Array(86, 92, 79), PackedInt32Array(79, 92, 82), PackedInt32Array(82, 92, 81), PackedInt32Array(81, 92, 75), PackedInt32Array(75, 92, 83), PackedInt32Array(94, 93, 95), PackedInt32Array(93, 97, 96), PackedInt32Array(93, 96, 95), PackedInt32Array(95, 96, 98), PackedInt32Array(98, 96, 99), PackedInt32Array(99, 96, 100), PackedInt32Array(101, 100, 102), PackedInt32Array(102, 100, 103), PackedInt32Array(103, 100, 96), PackedInt32Array(104, 7, 8), PackedInt32Array(104, 8, 105), PackedInt32Array(105, 8, 106), PackedInt32Array(106, 8, 107), PackedInt32Array(108, 110, 109), PackedInt32Array(111, 116, 112), PackedInt32Array(112, 116, 115), PackedInt32Array(112, 115, 113), PackedInt32Array(113, 115, 114), PackedInt32Array(114, 115, 108), PackedInt32Array(108, 115, 110), PackedInt32Array(118, 117, 119), PackedInt32Array(119, 117, 120), PackedInt32Array(120, 117, 121), PackedInt32Array(121, 122, 120), PackedInt32Array(120, 122, 123), PackedInt32Array(123, 122, 55), PackedInt32Array(122, 124, 55), PackedInt32Array(55, 124, 54), PackedInt32Array(63, 123, 55), PackedInt32Array(64, 54, 125), PackedInt32Array(127, 126, 128), PackedInt32Array(128, 126, 129), PackedInt32Array(129, 126, 130), PackedInt32Array(125, 54, 131), PackedInt32Array(131, 54, 106), PackedInt32Array(106, 54, 124), PackedInt32Array(106, 124, 105), PackedInt32Array(132, 131, 133), PackedInt32Array(133, 131, 106), PackedInt32Array(130, 125, 129), PackedInt32Array(129, 125, 131), PackedInt32Array(133, 134, 132), PackedInt32Array(132, 135, 131), PackedInt32Array(137, 136, 142), PackedInt32Array(142, 136, 141), PackedInt32Array(142, 141, 143), PackedInt32Array(143, 141, 140), PackedInt32Array(143, 140, 138), PackedInt32Array(138, 140, 139), PackedInt32Array(146, 145, 144), PackedInt32Array(148, 147, 146), PackedInt32Array(144, 149, 146), PackedInt32Array(146, 149, 148), PackedInt32Array(153, 154, 150), PackedInt32Array(150, 154, 152), PackedInt32Array(150, 152, 151), PackedInt32Array(153, 156, 155), PackedInt32Array(155, 160, 159), PackedInt32Array(159, 160, 157), PackedInt32Array(157, 160, 158), PackedInt32Array(157, 162, 152), PackedInt32Array(152, 162, 161), PackedInt32Array(154, 163, 152), PackedInt32Array(152, 163, 157), PackedInt32Array(157, 163, 159), PackedInt32Array(159, 163, 155), PackedInt32Array(155, 163, 153), PackedInt32Array(153, 163, 154), PackedInt32Array(71, 134, 70), PackedInt32Array(70, 134, 133)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjb8m"]
+size = Vector3(512, 32, 256)
+
+[sub_resource type="Gradient" id="Gradient_cf4oo"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iaawv"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iiacx"]
+noise = SubResource("FastNoiseLite_iaawv")
+color_ramp = SubResource("Gradient_cf4oo")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_712yd"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_iiacx"),
+&"projection_threshold": null
+}
+world_background = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uakv"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_wtt1n"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_4uakv")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_irn1d"]
+name = "open_world"
+albedo_texture = ExtResource("4_iiacx")
+normal_texture = ExtResource("5_712yd")
+normal_depth = 2.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_a2ep1"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_wtt1n")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_irn1d")])
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4uakv"]
+size = Vector3(1, 50, 69)
+
+[node name="OpenWorld" type="Node3D" unique_id=1047798032]
+
+[node name="MapMarkers" type="Node3D" parent="." unique_id=1445345860]
+
+[node name="Area3D1" type="Area3D" parent="MapMarkers" unique_id=1383320964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.595614, -0.21667457, 120.51317)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapMarkers/Area3D1" unique_id=864143317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.59933, 0, 88.33472)
+shape = SubResource("BoxShape3D_lfxu0")
+
+[node name="Area3D2" type="Area3D" parent="MapMarkers" unique_id=2038202213]
+transform = Transform3D(-0.68138033, 0, -0.73192954, 0, 1, 0, 0.73192954, 0, -0.68138033, 44.47143, -0.21667457, 70.02673)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapMarkers/Area3D2" unique_id=2005510543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.136932, 0, -164.2175)
+shape = SubResource("BoxShape3D_k2fhp")
+
+[node name="Area3D3" type="Area3D" parent="MapMarkers" unique_id=401268151]
+transform = Transform3D(0.8317451, 0, -0.5551577, 0, 1, 0, 0.5551577, 0, 0.8317451, -48.404675, -0.21667457, 41.037872)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapMarkers/Area3D3" unique_id=1659409067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.47438, 0, -15.687889)
+shape = SubResource("BoxShape3D_y6d5u")
+
+[node name="Player" parent="." unique_id=805182843 instance=ExtResource("1_34s0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.92245, 1.0298903, 217.98154)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player" unique_id=1372534676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -105)
+visible = false
+mesh = SubResource("SphereMesh_lfxu0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1538202830]
+transform = Transform3D(1, 0, 0, 0, 0.39379764, 0.91919714, 0, -0.91919714, 0.3937976, 0, 364.77994, 0)
+layers = 15
+light_energy = 0.1
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1083042143]
+navigation_mesh = SubResource("NavigationMesh_iaawv")
+
+[node name="test_binblend" parent="NavigationRegion3D" unique_id=1995896895 instance=ExtResource("4_ej0g8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.00372, -0.21667457, 208.84789)
+
+[node name="Container" parent="NavigationRegion3D/test_binblend" unique_id=785363352 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 2.1852875)
+
+[node name="Container4" parent="NavigationRegion3D/test_binblend" unique_id=1249674712 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 0.9159012)
+
+[node name="Container3" parent="NavigationRegion3D/test_binblend" unique_id=212587263 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 3.5277634)
+
+[node name="test_binblend2" parent="NavigationRegion3D" unique_id=1566743160 instance=ExtResource("4_ej0g8")]
+transform = Transform3D(-0.68138033, 0, -0.73192954, 0, 1, 0, 0.73192954, 0, -0.68138033, 196.10388, -0.21667457, 148.15236)
+
+[node name="Container" parent="NavigationRegion3D/test_binblend2" unique_id=809519339 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 2.1852875)
+
+[node name="Container4" parent="NavigationRegion3D/test_binblend2" unique_id=334146423 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 0.9159012)
+
+[node name="Container3" parent="NavigationRegion3D/test_binblend2" unique_id=1803032967 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 3.5277634)
+
+[node name="test_binblend3" parent="NavigationRegion3D" unique_id=2104911006 instance=ExtResource("4_ej0g8")]
+transform = Transform3D(0.8317451, 0, -0.5551577, 0, 1, 0, 0.5551577, 0, 0.8317451, 55.518112, -0.21667457, 91.54088)
+
+[node name="Container" parent="NavigationRegion3D/test_binblend3" unique_id=406427644 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 2.1852875)
+
+[node name="Container4" parent="NavigationRegion3D/test_binblend3" unique_id=582344423 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 0.9159012)
+
+[node name="Container3" parent="NavigationRegion3D/test_binblend3" unique_id=1874230483 instance=ExtResource("5_k2fhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5861645, 0.25769806, 3.5277634)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1438852213]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=1774872957]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 128, -16, 0)
+shape = SubResource("BoxShape3D_hjb8m")
+
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D" unique_id=1992386612]
+data_directory = "res://Data Directory"
+material = SubResource("Terrain3DMaterial_712yd")
+assets = SubResource("Terrain3DAssets_a2ep1")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Revolver" parent="." unique_id=1063483380 instance=ExtResource("6_cf4oo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.95338, 0.64692116, 214.2022)
+
+[node name="hunting_rifle" parent="." unique_id=1887563836 instance=ExtResource("8_iiacx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.49191, 0.55109394, 214.3754)
+
+[node name="buckshot" parent="." unique_id=878573052 instance=ExtResource("9_712yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.95833, 0.86314607, 212.63373)
+
+[node name="revolver_ammo" parent="." unique_id=465553703 instance=ExtResource("10_4uakv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.26155, 0.4167726, 211.81593)
+
+[node name="rifle_ammo" parent="." unique_id=306509528 instance=ExtResource("11_wtt1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.6578, 0.2537148, 212.86656)
+
+[node name="double_barrel" parent="." unique_id=1154896875 instance=ExtResource("12_iaawv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.0513, 0.6208409, 213.85437)
+
+[node name="LeftBoarder" type="Node3D" parent="." unique_id=1575037738]
+
+[node name="LeftMapTp" type="Area3D" parent="LeftBoarder" unique_id=1789311241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, 223.69966)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp" unique_id=1312979789]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp" unique_id=1635115988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp2" type="Area3D" parent="LeftBoarder" unique_id=1291965741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, 159.822)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp2" unique_id=945877663]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp2" unique_id=1869521968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.13889, 1, 13.9952545)
+
+[node name="LeftMapTp3" type="Area3D" parent="LeftBoarder" unique_id=1215720258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, 95.60724)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp3" unique_id=1737072404]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp3" unique_id=639970200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.64749, 1, 13.9952545)
+
+[node name="LeftMapTp4" type="Area3D" parent="LeftBoarder" unique_id=1536609539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, 31.087029)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp4" unique_id=1120932016]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp4" unique_id=866765181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp6" type="Area3D" parent="LeftBoarder" unique_id=951322350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -37.93229)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp6" unique_id=561357361]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp6" unique_id=2063426280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp7" type="Area3D" parent="LeftBoarder" unique_id=1165350225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, -102.10011)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp7" unique_id=1458659430]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp7" unique_id=304842268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp8" type="Area3D" parent="LeftBoarder" unique_id=1064956943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -166.94232)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp8" unique_id=630469952]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp8" unique_id=104336609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp9" type="Area3D" parent="LeftBoarder" unique_id=2061769555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, -230.93634)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBoarder/LeftMapTp9" unique_id=600404230]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="LeftBoarder/LeftMapTp9" unique_id=674773038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="RightBoarder" type="Node3D" parent="." unique_id=862407913]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 256, 0, 0)
+
+[node name="LeftMapTp" type="Area3D" parent="RightBoarder" unique_id=1962895639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, 223.69966)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp" unique_id=1752417292]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp" unique_id=1573229902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp2" type="Area3D" parent="RightBoarder" unique_id=953373484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, 159.822)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp2" unique_id=1916398027]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp2" unique_id=911499994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp3" type="Area3D" parent="RightBoarder" unique_id=1652913765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, 95.60724)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp3" unique_id=650738158]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp3" unique_id=1325222506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp4" type="Area3D" parent="RightBoarder" unique_id=976925715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, 31.087029)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp4" unique_id=462913245]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp4" unique_id=1197193014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp6" type="Area3D" parent="RightBoarder" unique_id=808485184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -37.93229)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp6" unique_id=1226239031]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp6" unique_id=1557952163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp7" type="Area3D" parent="RightBoarder" unique_id=674113675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, -102.10011)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp7" unique_id=1449493825]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp7" unique_id=1817844922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp8" type="Area3D" parent="RightBoarder" unique_id=1179756336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -166.94232)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp8" unique_id=1792490100]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp8" unique_id=580544454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="LeftMapTp9" type="Area3D" parent="RightBoarder" unique_id=1684937999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, -230.93634)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBoarder/LeftMapTp9" unique_id=407401897]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="RightBoarder/LeftMapTp9" unique_id=1765749969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.494, 1, 0)
+
+[node name="BottomBoarder" type="Node3D" parent="." unique_id=574822151]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 131, 0, 258)
+
+[node name="LeftMapTp3" type="Area3D" parent="BottomBoarder" unique_id=794360530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, 95.60724)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomBoarder/LeftMapTp3" unique_id=807242919]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="BottomBoarder/LeftMapTp3" unique_id=1892350877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.21518, 0.99999905, -193.42957)
+
+[node name="LeftMapTp4" type="Area3D" parent="BottomBoarder" unique_id=1293476840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, 31.087029)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomBoarder/LeftMapTp4" unique_id=230726972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="BottomBoarder/LeftMapTp4" unique_id=510637510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.295883, 1.000001, -119.74153)
+
+[node name="LeftMapTp6" type="Area3D" parent="BottomBoarder" unique_id=1262833602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -37.93229)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomBoarder/LeftMapTp6" unique_id=1791442188]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="BottomBoarder/LeftMapTp6" unique_id=776063865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.346924, 0.99999905, 104.64847)
+
+[node name="LeftMapTp7" type="Area3D" parent="BottomBoarder" unique_id=1969281461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, -102.10011)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomBoarder/LeftMapTp7" unique_id=788561877]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="BottomBoarder/LeftMapTp7" unique_id=527059042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.427704, 1.000001, 178.33653)
+
+[node name="TopBoarder" type="Node3D" parent="." unique_id=1451068971]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 131, 0, -257)
+
+[node name="LeftMapTp3" type="Area3D" parent="TopBoarder" unique_id=1469291152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, 95.60724)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopBoarder/LeftMapTp3" unique_id=1946626854]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="TopBoarder/LeftMapTp3" unique_id=1171521313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.453644, 0.99999905, -197.70735)
+
+[node name="LeftMapTp4" type="Area3D" parent="TopBoarder" unique_id=1469183810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, 31.087029)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopBoarder/LeftMapTp4" unique_id=267197698]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="TopBoarder/LeftMapTp4" unique_id=1286457951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5343475, 1.000001, -124.01932)
+
+[node name="LeftMapTp5" type="Area3D" parent="TopBoarder" unique_id=1646925659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -33.456688)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopBoarder/LeftMapTp5" unique_id=1376541939]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="TopBoarder/LeftMapTp5" unique_id=907481123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4939423, 1, 125.999985)
+
+[node name="LeftMapTp6" type="Area3D" parent="TopBoarder" unique_id=2085887799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0543594, 9.536743e-07, -37.93229)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopBoarder/LeftMapTp6" unique_id=959778055]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="TopBoarder/LeftMapTp6" unique_id=157793663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.453644, 0.99999905, 124.01929)
+
+[node name="LeftMapTp7" type="Area3D" parent="TopBoarder" unique_id=726435167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.014, 0, -102.10011)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("12_iiacx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopBoarder/LeftMapTp7" unique_id=1246192082]
+shape = SubResource("BoxShape3D_4uakv")
+
+[node name="LeftTpSpot" type="Marker3D" parent="TopBoarder/LeftMapTp7" unique_id=1202277100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.534363, 1.000001, 197.70734)
+
+[node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=219972012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7266273, 0)
+script = ExtResource("13_iiacx")
+
+[node name="Marker3D" type="Marker3D" parent="EnemySpawnPoints" unique_id=38216739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.32541, 1.6119761, 214.16937)
+
+[node name="Marker3D2" type="Marker3D" parent="EnemySpawnPoints" unique_id=318215050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.10667, 1.6119761, 213.8815)
+
+[node name="Marker3D3" type="Marker3D" parent="EnemySpawnPoints" unique_id=1507007632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.2506, 1.6119761, 103.49909)
+
+[node name="Marker3D4" type="Marker3D" parent="EnemySpawnPoints" unique_id=1182963390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.74768, 1.6119761, 42.14205)
+
+[node name="Marker3D5" type="Marker3D" parent="EnemySpawnPoints" unique_id=1982798856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.74768, 1.6119761, 158.14206)
+
+[node name="Fire Axe" parent="." unique_id=1395840489 instance=ExtResource("25_w7nyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 1, 215)
+
+[node name="Pipe" parent="." unique_id=268024032 instance=ExtResource("26_m4n4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138, 0, 215)
+
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp" to="LeftBoarder/LeftMapTp" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp2" to="LeftBoarder/LeftMapTp2" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp3" to="LeftBoarder/LeftMapTp3" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp4" to="LeftBoarder/LeftMapTp4" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp6" to="LeftBoarder/LeftMapTp6" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp7" to="LeftBoarder/LeftMapTp7" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp8" to="LeftBoarder/LeftMapTp8" method="_on_body_entered"]
+[connection signal="body_entered" from="LeftBoarder/LeftMapTp9" to="LeftBoarder/LeftMapTp9" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp" to="RightBoarder/LeftMapTp" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp2" to="RightBoarder/LeftMapTp2" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp3" to="RightBoarder/LeftMapTp3" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp4" to="RightBoarder/LeftMapTp4" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp6" to="RightBoarder/LeftMapTp6" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp7" to="RightBoarder/LeftMapTp7" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp8" to="RightBoarder/LeftMapTp8" method="_on_body_entered"]
+[connection signal="body_entered" from="RightBoarder/LeftMapTp9" to="RightBoarder/LeftMapTp9" method="_on_body_entered"]
+[connection signal="body_entered" from="BottomBoarder/LeftMapTp3" to="BottomBoarder/LeftMapTp3" method="_on_body_entered"]
+[connection signal="body_entered" from="BottomBoarder/LeftMapTp4" to="BottomBoarder/LeftMapTp4" method="_on_body_entered"]
+[connection signal="body_entered" from="BottomBoarder/LeftMapTp6" to="BottomBoarder/LeftMapTp6" method="_on_body_entered"]
+[connection signal="body_entered" from="BottomBoarder/LeftMapTp7" to="BottomBoarder/LeftMapTp7" method="_on_body_entered"]
+[connection signal="body_entered" from="TopBoarder/LeftMapTp3" to="TopBoarder/LeftMapTp3" method="_on_body_entered"]
+[connection signal="body_entered" from="TopBoarder/LeftMapTp4" to="TopBoarder/LeftMapTp4" method="_on_body_entered"]
+[connection signal="body_entered" from="TopBoarder/LeftMapTp5" to="TopBoarder/LeftMapTp5" method="_on_body_entered"]
+[connection signal="body_entered" from="TopBoarder/LeftMapTp6" to="TopBoarder/LeftMapTp6" method="_on_body_entered"]
+[connection signal="body_entered" from="TopBoarder/LeftMapTp7" to="TopBoarder/LeftMapTp7" method="_on_body_entered"]

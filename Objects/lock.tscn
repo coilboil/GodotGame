@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cwn6aev5cluo5"]
+
+[ext_resource type="Script" uid="uid://v4wei2ot006q" path="res://Scripts/lock.gd" id="1_tv613"]
+[ext_resource type="Script" uid="uid://84xwl8ysx4b7" path="res://Inventory/item_data.gd" id="2_hjknw"]
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="3_u30sk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ik7o"]
+size = Vector3(2, 3, 0.01)
+
+[sub_resource type="Resource" id="Resource_tv613"]
+script = ExtResource("2_hjknw")
+metadata/_custom_type_script = "uid://84xwl8ysx4b7"
+
+[node name="Lock" type="StaticBody3D" unique_id=832841076]
+script = ExtResource("1_tv613")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1271450546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.814209, 1.347229, 0.071686745)
+shape = SubResource("BoxShape3D_7ik7o")
+debug_fill = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2042520570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.814209, 1.347229, -0.07366826)
+shape = SubResource("BoxShape3D_7ik7o")
+debug_fill = false
+
+[node name="InteractionComponent" parent="." unique_id=2063117098 node_paths=PackedStringArray("object_ref") instance=ExtResource("3_u30sk")]
+object_ref = NodePath("..")
+interaction_type = 4
+item_data = SubResource("Resource_tv613")

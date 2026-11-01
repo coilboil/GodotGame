@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cbd8mesyw73ma"]
+
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="1_vu4i3"]
+[ext_resource type="Script" uid="uid://cqtrmxo702ps4" path="res://Inventory/Action/consumable_action.gd" id="2_43uja"]
+[ext_resource type="Script" uid="uid://84xwl8ysx4b7" path="res://Inventory/item_data.gd" id="3_dverq"]
+[ext_resource type="Texture2D" uid="uid://erpneexqpa6c" path="res://assets/item_1.png" id="4_3s8m5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wywkb"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj4tn"]
+albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l33pn"]
+height = 0.3
+radius = 0.1
+
+[sub_resource type="Resource" id="Resource_oy2cy"]
+script = ExtResource("2_43uja")
+modifier_name = "health"
+modifier_value = 35
+metadata/_custom_type_script = "uid://cqtrmxo702ps4"
+
+[sub_resource type="Resource" id="Resource_c3yov"]
+script = ExtResource("3_dverq")
+name = "bandage"
+texture = ExtResource("4_3s8m5")
+dimentions = Vector2i(1, 2)
+action_data = SubResource("Resource_oy2cy")
+quantity = 3
+max_quant = 3
+metadata/_custom_type_script = "uid://84xwl8ysx4b7"
+
+[node name="Bandage[3]" type="RigidBody3D" unique_id=582333986]
+collision_layer = 2
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1427439372]
+mesh = SubResource("CylinderMesh_wywkb")
+surface_material_override/0 = SubResource("StandardMaterial3D_nj4tn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1814890463]
+shape = SubResource("CylinderShape3D_l33pn")
+
+[node name="InteractionComponent" parent="." unique_id=1532396645 node_paths=PackedStringArray("object_ref") instance=ExtResource("1_vu4i3")]
+object_ref = NodePath("..")
+interaction_type = 3
+item_data = SubResource("Resource_c3yov")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ctrfwjkgi4tq2"]
+
+[ext_resource type="Script" uid="uid://dymeo3264vw46" path="res://Scenes/right_map_tp.gd" id="1_fxwq1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6d5u"]
+size = Vector3(1, 5, 10)
+
+[node name="RightMapTp" type="Area3D" unique_id=1267591864]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_fxwq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824928519]
+shape = SubResource("BoxShape3D_y6d5u")
+
+[node name="RightTpSpot" type="Marker3D" parent="." unique_id=1528941741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -1.5, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

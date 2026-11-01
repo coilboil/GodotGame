@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://kryis21in0wn"]
+
+[ext_resource type="PackedScene" uid="uid://bvk25t5r0pyci" path="res://Interaction/interaction_component.tscn" id="1_13sy0"]
+[ext_resource type="Script" uid="uid://bggatsdskh6a1" path="res://Scripts/key.gd" id="1_i3axr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3clsc"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13sy0"]
+albedo_color = Color(0.84486693, 0.84486705, 7.70092e-07, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3clsc"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Key" type="RigidBody3D" unique_id=868944018]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_i3axr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=372037049]
+mesh = SubResource("BoxMesh_3clsc")
+surface_material_override/0 = SubResource("StandardMaterial3D_13sy0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1948113826]
+shape = SubResource("BoxShape3D_3clsc")
+
+[node name="InteractionComponent" parent="." unique_id=1532396645 node_paths=PackedStringArray("object_ref") instance=ExtResource("1_13sy0")]
+object_ref = NodePath("..")
+interaction_type = 5

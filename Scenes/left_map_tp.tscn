@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dm5rekngrkart"]
+
+[ext_resource type="Script" uid="uid://0xre2p8sqbln" path="res://Scenes/left_map_tp.gd" id="1_iax8v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2fhp"]
+size = Vector3(1, 5, 10)
+
+[node name="LeftMapTp" type="Area3D" unique_id=1789311241]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_iax8v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1312979789]
+shape = SubResource("BoxShape3D_k2fhp")
+
+[node name="LeftTpSpot" type="Marker3D" parent="." unique_id=1635115988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1.5, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://dd4ifj2b8lt04"]
+
+[ext_resource type="PackedScene" uid="uid://bllu57tf4phxy" path="res://Objects/player.tscn" id="1_56mpk"]
+[ext_resource type="Shader" uid="uid://faod4r8jxu7s" path="res://Scenes/shader_test2.gdshader" id="1_swmo4"]
+[ext_resource type="Texture2D" uid="uid://cq6b2ygif7ric" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_NormalGL.jpg" id="2_dqnau"]
+[ext_resource type="Shader" uid="uid://dq0dikyyygcgy" path="res://Scenes/shader_test.gdshader" id="2_wso2r"]
+[ext_resource type="Shader" uid="uid://b52uj483lpwuj" path="res://Scenes/shader_test_sprite.gdshader" id="3_daxww"]
+[ext_resource type="Texture2D" uid="uid://iijk84g8uro7" path="res://Objects/icon.svg" id="4_mrmnq"]
+[ext_resource type="Shader" uid="uid://b2fv871ofkwqb" path="res://Scenes/shader_tes_sprite2t.gdshader" id="6_3da57"]
+[ext_resource type="Texture2D" uid="uid://46h42qxa7cw4" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_Color.jpg" id="6_5347u"]
+[ext_resource type="Texture2D" uid="uid://cl3ulsfiyu101" path="res://amh1tqh06166z417-2033267517.jpg" id="7_5347u"]
+[ext_resource type="PackedScene" uid="uid://blhmxb48t7xo" path="res://Objects/int_cube_1_kg.tscn" id="8_3da57"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hjb8m"]
+size = Vector2(10, 10)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p5ej7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_daxww"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_swmo4")
+shader_parameter/depth_cam_tex = SubResource("ViewportTexture_p5ej7")
+shader_parameter/snow_tex = ExtResource("6_5347u")
+shader_parameter/normal_map = ExtResource("2_dqnau")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6c0r"]
+size = Vector3(10, 0.38219044, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_daxww"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_swmo4"]
+viewport_path = NodePath("Node3D/SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odlsx"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_swmo4")
+albedo_texture_force_srgb = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o7gcj"]
+viewport_path = NodePath("Node3D/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5347u"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrmnq"]
+resource_local_to_scene = true
+shader = ExtResource("3_daxww")
+shader_parameter/my_tex = SubResource("ViewportTexture_o7gcj")
+shader_parameter/my_tex2 = SubResource("ViewportTexture_5347u")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lgx12"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o7gcj"]
+resource_local_to_scene = true
+shader = ExtResource("6_3da57")
+shader_parameter/my_tex = SubResource("ViewportTexture_lgx12")
+
+[sub_resource type="Environment" id="Environment_daxww"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_swmo4"]
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swmo4"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_wso2r")
+
+[sub_resource type="QuadMesh" id="QuadMesh_lfxu0"]
+size = Vector2(2, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dqnau"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7gcj"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_dqnau")
+
+[sub_resource type="QuadMesh" id="QuadMesh_o7gcj"]
+size = Vector2(2, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3da57"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3da57"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_3da57")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r6c0r"]
+
+[sub_resource type="Sky" id="Sky_hjb8m"]
+sky_material = SubResource("ProceduralSkyMaterial_r6c0r")
+
+[sub_resource type="Environment" id="Environment_lfxu0"]
+background_mode = 2
+sky = SubResource("Sky_hjb8m")
+
+[node name="ShaderTest" type="Node3D" unique_id=538883042]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1629702120]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1476193387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009903967, 0)
+layers = 513
+mesh = SubResource("PlaneMesh_hjb8m")
+surface_material_override/0 = SubResource("ShaderMaterial_daxww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1849896198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30913723, 0)
+shape = SubResource("BoxShape3D_r6c0r")
+
+[node name="Player" parent="." unique_id=805182843 instance=ExtResource("1_56mpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06255627, 0.8987676, 0.076823235)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=835471860]
+transform = Transform3D(1.975, 0, 0, 0, 1.975, 0, 0, 0, 1.975, 2, 2, -4)
+mesh = SubResource("QuadMesh_daxww")
+surface_material_override/0 = SubResource("StandardMaterial3D_odlsx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966231772]
+transform = Transform3D(-1, -4.3933115e-14, 8.940699e-08, 1.8366825e-08, 0.9786717, 0.20542991, -8.750012e-08, 0.20542991, -0.9786717, 0, 8, 0)
+layers = 512
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=352876620]
+size = Vector2i(2048, 2048)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=2136490802]
+z_index = 1
+material = SubResource("ShaderMaterial_mrmnq")
+scale = Vector2(4, 4)
+texture = ExtResource("7_5347u")
+centered = false
+
+[node name="SubViewport2" type="SubViewport" parent="." unique_id=421560054]
+size = Vector2i(2048, 2048)
+render_target_clear_mode = 2
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport2" unique_id=10861042]
+z_index = 1
+material = SubResource("ShaderMaterial_o7gcj")
+scale = Vector2(4, 4)
+texture = ExtResource("7_5347u")
+centered = false
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1818555073]
+
+[node name="SubViewport2" type="SubViewport" parent="Node3D" unique_id=622226451]
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewport2" unique_id=8352656]
+transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, -1, 0, 1, -5.9604645e-08, 0, -1.4232802, 0)
+environment = SubResource("Environment_daxww")
+projection = 1
+current = true
+fov = 37.849285
+size = 10.0
+far = 2.18
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/SubViewport2/Camera3D" unique_id=177973742]
+transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, 0, -7.662993e-08, -1.2856369)
+mesh = SubResource("QuadMesh_swmo4")
+surface_material_override/0 = SubResource("ShaderMaterial_swmo4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=94920429]
+transform = Transform3D(1, 0, 0, 0, 0.8279926, 0.5607389, 0, -0.5607389, 0.8279926, -1, 8.573442, -1.1031951)
+use_collision = true
+size = Vector3(1, 19.0038, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=330293719]
+z_index = 1
+material = SubResource("ShaderMaterial_mrmnq")
+position = Vector2(230.932, 0)
+scale = Vector2(-229.932, 200.65001)
+texture = ExtResource("4_mrmnq")
+centered = false
+region_enabled = true
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=26628066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -4)
+mesh = SubResource("QuadMesh_lfxu0")
+surface_material_override/0 = SubResource("StandardMaterial3D_o7gcj")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1932250545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, -4)
+mesh = SubResource("QuadMesh_o7gcj")
+surface_material_override/0 = SubResource("StandardMaterial3D_3da57")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=143440762]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IntCube_1kg" parent="." unique_id=1561679902 instance=ExtResource("8_3da57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69340134, 0.49876785, -1.3230721)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=719242747]
+environment = SubResource("Environment_lfxu0")

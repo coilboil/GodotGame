@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0kn2gghjoo6n"]
+
+[ext_resource type="Texture2D" uid="uid://46h42qxa7cw4" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_Color.jpg" id="1_bbs58"]
+[ext_resource type="Texture2D" uid="uid://cq6b2ygif7ric" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_NormalGL.jpg" id="2_kbbnq"]
+[ext_resource type="Texture2D" uid="uid://mfxv5yfkyy14" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_Roughness.jpg" id="3_2s3ve"]
+[ext_resource type="Texture2D" uid="uid://cfue48yusc5b4" path="res://Objects/World Assests/FloorMats/Snow001_4K-JPG_Displacement.jpg" id="4_0r47g"]
+
+[resource]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(1, 1, 1, 0.27450982)
+albedo_texture = ExtResource("1_bbs58")
+roughness_texture = ExtResource("3_2s3ve")
+normal_enabled = true
+normal_texture = ExtResource("2_kbbnq")
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.1
+subsurf_scatter_texture = ExtResource("4_0r47g")
+texture_repeat = false
+disable_receive_shadows = true
+grow_amount = 0.481

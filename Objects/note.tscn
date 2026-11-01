@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://db8vq00mriocf"]
+
+[ext_resource type="Texture2D" uid="uid://ua7k3oyvkx30" path="res://assets/oldpage.png" id="1_hr6jr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_akwul"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0whp"]
+transparency = 1
+albedo_texture = ExtResource("1_hr6jr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okjwl"]
+size = Vector3(2.2, 0.1, 3)
+
+[node name="Note" type="StaticBody3D" unique_id=18716268]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=286162527]
+transform = Transform3D(1.112, 0, 0, 0, 1, 0, 0, 0, 1.536, 0, 0, 0)
+mesh = SubResource("PlaneMesh_akwul")
+surface_material_override/0 = SubResource("StandardMaterial3D_o0whp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=222040882]
+shape = SubResource("BoxShape3D_okjwl")

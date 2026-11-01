@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cp7s4miw663tn"]
+
+[ext_resource type="Script" uid="uid://beenpf11aqjq" path="res://Objects/Enemies/enemyv_2.gd" id="1_veygh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_veygh"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1259783079 node_paths=PackedStringArray("world_collider") groups=["enemy"]]
+script = ExtResource("1_veygh")
+world_collider = NodePath("CollisionShape3D")
+max_health = 50.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1422775768]
+shape = SubResource("CapsuleShape3D_veygh")
